@@ -1,4 +1,4 @@
-# Copyright 2013 Olivier Gillet..
+# Copyright 2009 Olivier Gillet.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -10,21 +10,14 @@
 # GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+include module_tester/makefile
 
-VERSION        = 1.0
-MCU_NAME       = 644
-TARGET         = module_tester
-PACKAGES       = avrlib module_tester
-RESOURCES      = module_tester/resources
-EXTRA_DEFINES  = -DDISABLE_DEFAULT_UART_RX_ISR
-EXTRA_LD_FLAGS = ,-u,vfprintf -lprintf_flt
-SYSEX_FLAGS    = --page_size=128 --device_id=127
+FIRMWARE      = $(BUILD_DIR)module_tester.hex
+BOOTLOADER    = $(BUILD_ROOT)module_tester_bootloader/module_tester_bootloader.hex
 
-LFUSE          = ff
-HFUSE          = d6
-EFUSE          = fd
-LOCK           = 2f
-
-include avrlib/makefile.mk
-
-include $(DEP_FILE)
+bootstrap_all:	$(FIRMWARE) $(BOOTLOADER)
+		make -f bootloader/makefile fuses
+		$(AVRDUDE) -B 1 $(AVRDUDE_COM_OPTS) $(AVRDUDE_ISP_OPTS) \
+			-U flash:w:$(FIRMWARE):i -U flash:w:$(BOOTLOADER):i \
+			-U lock:w:0x2f:m
