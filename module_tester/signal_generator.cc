@@ -303,6 +303,12 @@ void SignalGenerator::RenderCv() {
             value = pgm_read_word(chromatic_scale + index);
           }
           break;
+        case CV_MODE_C1_NOTE:
+          value = 1715;
+          break;
+        case CV_MODE_C3_NOTE:
+          value = 1048;
+          break;
       }
       if (data_.cv.mode < CV_MODE_1_OCTAVE_ARP) {
         value = S16U16MulShift16(32767 - value, scale) + offset;
@@ -379,6 +385,46 @@ void SignalGenerator::RenderAudioBandLimited() {
 }
 
 /* static */
+void SignalGenerator::RenderAudioNoise() {
+  uint32_t phase = state_.audio_phase;
+  uint8_t count = kAudioBlockSize;
+  uint16_t envelope_phase = state_.audio_envelope_phase;
+  
+  if (state_.trigger_count) {
+    state_.trigger_count = 0;
+    envelope_phase = 0;
+  }
+  
+  uint16_t amplitude = 4095;
+  if (data_.audio.envelope_mode == AUDIO_ENVELOPE_MODE_GATE
+      && !state_.gate_state) {
+    amplitude = 0;
+  }
+  if (data_.audio.midi_mode == AUDIO_MIDI_MODE_ON ||
+      data_.audio.midi_mode == AUDIO_MIDI_MODE_GATE) {
+    amplitude = note_stack_.size() ? 4095 : 0;
+  }
+  
+  while (count--) {
+    phase = phase * 1664525L + 1013904223L;
+    envelope_phase += 4;
+    if (envelope_phase < 4) {
+      envelope_phase = 0xffff;
+    }
+    if (data_.audio.envelope_mode == AUDIO_ENVELOPE_MODE_TRIGGER) {
+      Word envelope_phi;
+      envelope_phi.value = envelope_phase;
+      uint16_t a = pgm_read_word(lut_envelope + envelope_phi.bytes[1]);
+      uint16_t b = pgm_read_word(lut_envelope + envelope_phi.bytes[1] + 1);
+      amplitude = a + S16U8MulShift8(b - a, envelope_phi.bytes[0]);
+    }
+    audio_buffer_.Overwrite(2048 + S16U16MulShift16(phase, amplitude));
+  }
+  state_.audio_phase = phase;
+  state_.audio_envelope_phase = envelope_phase;
+}
+
+/* static */
 void SignalGenerator::RenderAudioSine() {
   uint32_t phase = state_.audio_phase;
   uint32_t increment = state_.audio_phase_increment;
@@ -448,6 +494,7 @@ const SignalGenerator::AudioRenderFn SignalGenerator::fn_table_[] PROGMEM = {
   &SignalGenerator::RenderAudioBandLimited,
   &SignalGenerator::RenderAudioBandLimited,
   &SignalGenerator::RenderAudioSine,
+  &SignalGenerator::RenderAudioNoise,
 };
 
 }  // namespace module_tester

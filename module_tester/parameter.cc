@@ -124,7 +124,7 @@ static const prog_Parameter parameters[] PROGMEM = {
   
   // 7
   { SG_PRM_CV_MODE,
-    STR_TRIANGLE, CV_MODE_TRIANGLE_LFO, CV_MODE_CHROMATIC_SCALE_ARP,
+    STR_TRIANGLE, CV_MODE_TRIANGLE_LFO, CV_MODE_C3_NOTE,
     STR_MODE },
     
   // 8
@@ -144,7 +144,7 @@ static const prog_Parameter parameters[] PROGMEM = {
   
   // 10
   { SG_PRM_AUDIO_MODE,
-    STR_SAW, AUDIO_MODE_SAW, AUDIO_MODE_SINE,
+    STR_SAW, AUDIO_MODE_SAW, AUDIO_MODE_NOISE,
     STR_SHAPE },
 
   // 11

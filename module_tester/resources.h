@@ -120,37 +120,40 @@ extern const prog_uint8_t wav_bandlimited_triangle_5[] PROGMEM;
 #define STR_1OCT_ARP 41  // 1oct arp
 #define STR_2OCT_ARP 42  // 2oct arp
 #define STR_CHRM_SCL 43  // chrm.scl
-#define STR__OFF 44  // off
-#define STR__GATE 45  // gate
-#define STR_TRIGGER 46  // trigger
-#define STR___OFF 47  // off
-#define STR__NOTE 48  // note
-#define STR_VELOCITY 49  // velocity
-#define STR_PTCHBEND 50  // ptchbend
-#define STR_MODWHEEL 51  // modwheel
-#define STR_SAW 52  // saw
-#define STR__SQUARE 53  // square
-#define STR__TRIANGLE 54  // triangle
-#define STR__SINE 55  // sine
-#define STR_10HZ 56  // 10Hz
-#define STR_20HZ 57  // 20Hz
-#define STR_50HZ 58  // 50Hz
-#define STR_100HZ 59  // 100Hz
-#define STR_200HZ 60  // 200Hz
-#define STR_500HZ 61  // 500Hz
-#define STR_1_0KHZ 62  // 1.0kHz
-#define STR_2_0KHZ 63  // 2.0kHz
-#define STR_5_0KHZ 64  // 5.0kHz
-#define STR_11V 65  // 1V
-#define STR_12V 66  // 2V
-#define STR_15V 67  // 5V
-#define STR_S1V 68  // +1V
-#define STR_S2V 69  // +2V
-#define STR_S5V 70  // +5V
-#define STR____OFF 71  // off
-#define STR___NOTE 72  // note
-#define STR___GATE 73  // gate
-#define STR__ON 74  // on
+#define STR_C1_NOTE 44  // c1 note
+#define STR_C3_NOTE 45  // c3 note
+#define STR__OFF 46  // off
+#define STR__GATE 47  // gate
+#define STR_TRIGGER 48  // trigger
+#define STR___OFF 49  // off
+#define STR__NOTE 50  // note
+#define STR_VELOCITY 51  // velocity
+#define STR_PTCHBEND 52  // ptchbend
+#define STR_MODWHEEL 53  // modwheel
+#define STR_SAW 54  // saw
+#define STR__SQUARE 55  // square
+#define STR__TRIANGLE 56  // triangle
+#define STR__SINE 57  // sine
+#define STR_NOISE 58  // noise
+#define STR_10HZ 59  // 10Hz
+#define STR_20HZ 60  // 20Hz
+#define STR_50HZ 61  // 50Hz
+#define STR_100HZ 62  // 100Hz
+#define STR_200HZ 63  // 200Hz
+#define STR_500HZ 64  // 500Hz
+#define STR_1_0KHZ 65  // 1.0kHz
+#define STR_2_0KHZ 66  // 2.0kHz
+#define STR_5_0KHZ 67  // 5.0kHz
+#define STR_11V 68  // 1V
+#define STR_12V 69  // 2V
+#define STR_15V 70  // 5V
+#define STR_S1V 71  // +1V
+#define STR_S2V 72  // +2V
+#define STR_S5V 73  // +5V
+#define STR____OFF 74  // off
+#define STR___NOTE 75  // note
+#define STR___GATE 76  // gate
+#define STR__ON 77  // on
 #define LUT_AUDIO_MIDI_NOTE 0
 #define LUT_AUDIO_MIDI_NOTE_SIZE 106
 #define LUT_ENVELOPE 1

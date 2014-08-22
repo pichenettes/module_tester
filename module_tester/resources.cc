@@ -68,11 +68,14 @@ static const prog_char str_sine[] PROGMEM = "sine";
 static const prog_char str_1oct_arp[] PROGMEM = "1oct arp";
 static const prog_char str_2oct_arp[] PROGMEM = "2oct arp";
 static const prog_char str_chrm_scl[] PROGMEM = "chrm.scl";
+static const prog_char str_c1_note[] PROGMEM = "c1 note";
+static const prog_char str_c3_note[] PROGMEM = "c3 note";
 static const prog_char str_trigger[] PROGMEM = "trigger";
 static const prog_char str_velocity[] PROGMEM = "velocity";
 static const prog_char str_ptchbend[] PROGMEM = "ptchbend";
 static const prog_char str_modwheel[] PROGMEM = "modwheel";
 static const prog_char str_saw[] PROGMEM = "saw";
+static const prog_char str_noise[] PROGMEM = "noise";
 static const prog_char str_10hz[] PROGMEM = "10Hz";
 static const prog_char str_20hz[] PROGMEM = "20Hz";
 static const prog_char str_50hz[] PROGMEM = "50Hz";
@@ -135,6 +138,8 @@ PROGMEM const prog_char* const string_table[] = {
   str_1oct_arp,
   str_2oct_arp,
   str_chrm_scl,
+  str_c1_note,
+  str_c3_note,
   str_off,
   str_gate,
   str_trigger,
@@ -147,6 +152,7 @@ PROGMEM const prog_char* const string_table[] = {
   str_square,
   str_triangle,
   str_sine,
+  str_noise,
   str_10hz,
   str_20hz,
   str_50hz,

@@ -69,6 +69,8 @@ sine
 1oct arp
 2oct arp
 chrm.scl
+c1 note
+c3 note
 
  off
 gate
@@ -84,6 +86,7 @@ saw
 square
 triangle
 sine
+noise
 
 10Hz
 20Hz

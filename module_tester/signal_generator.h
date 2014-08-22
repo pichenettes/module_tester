@@ -73,6 +73,8 @@ enum CvMode {
   CV_MODE_1_OCTAVE_ARP,
   CV_MODE_2_OCTAVE_ARP,
   CV_MODE_CHROMATIC_SCALE_ARP,
+  CV_MODE_C1_NOTE,
+  CV_MODE_C3_NOTE
 };
 
 enum CvRange {
@@ -97,6 +99,7 @@ enum AudioMode {
   AUDIO_MODE_SQUARE,
   AUDIO_MODE_TRIANGLE,
   AUDIO_MODE_SINE,
+  AUDIO_MODE_NOISE
 };
 
 enum AudioEnvelopeMode {
@@ -277,6 +280,7 @@ class SignalGenerator {
   
   static void RenderAudioBandLimited();
   static void RenderAudioSine();
+  static void RenderAudioNoise();
   
   static uint16_t cv_samples_[kCvBlockSize];
   static uint16_t last_note_value_;
