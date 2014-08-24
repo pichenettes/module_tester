@@ -406,14 +406,14 @@ void SignalGenerator::RenderAudioNoise() {
     envelope_phase = 0;
   }
   
-  uint16_t amplitude = 4095;
+  uint16_t amplitude = 512;
   if (data_.audio.envelope_mode == AUDIO_ENVELOPE_MODE_GATE
       && !state_.gate_state) {
     amplitude = 0;
   }
   if (data_.audio.midi_mode == AUDIO_MIDI_MODE_ON ||
       data_.audio.midi_mode == AUDIO_MIDI_MODE_GATE) {
-    amplitude = note_stack_.size() ? 4095 : 0;
+    amplitude = note_stack_.size() ? 512 : 0;
   }
   
   while (count--) {
