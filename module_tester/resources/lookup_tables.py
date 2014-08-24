@@ -68,7 +68,7 @@ lookup_tables_32.append(
 Phase increment for audio source.
 ----------------------------------------------------------------------------"""
 
-frequencies = 440 * 2 ** ((12 + numpy.arange(0, 97.0) - 69) / 12.0)
+frequencies = 440 * 2 ** ((12 + numpy.arange(0, 128.0) - 69) / 12.0)
 frequencies = [10, 20, 50, 100, 200, 500, 1000, 2000, 5000] + list(frequencies)
 frequencies = numpy.array(frequencies)
 lookup_tables_32.append(

@@ -97,6 +97,13 @@ void SignalGenerator::Render() {
       }
       frequency = state_.last_midi_note + 9 - 12;
     }
+    if (data_.audio.mode == AUDIO_MODE_SWEEP) {
+      frequency = 9 + state_.sweep_note + 9 + 16;
+      state_.sweep_note = state_.sweep_note + 3;
+      if (state_.sweep_note >= 96) {
+        state_.sweep_note = 0;
+      }
+    }
     state_.audio_phase_increment = pgm_read_dword(
         lut_audio_phase_increment + frequency);
     state_.audio_midi_note = pgm_read_word(lut_audio_midi_note + frequency);
@@ -226,7 +233,11 @@ void SignalGenerator::RenderCv() {
   uint16_t scale = pgm_read_word(cv_range_scale + data_.cv.range);
   uint16_t offset = pgm_read_word(cv_range_offset + data_.cv.range);
   
-  if (data_.cv.midi_mode) {
+  if (data_.audio.mode == AUDIO_MODE_SWEEP) {
+    for (uint8_t i = 0; i < kCvBlockSize; ++i) {
+      cv_samples_[i] = 4095 - U8U8Mul(state_.sweep_note, 32);
+    }
+  } else if (data_.cv.midi_mode) {
     uint16_t value = 0;
     switch (data_.cv.midi_mode) {
       case CV_MIDI_MODE_NOTE:
@@ -468,6 +479,9 @@ void SignalGenerator::RenderAudioSine() {
       b = pgm_read_word(lut_envelope + envelope_phi.bytes[1] + 1);
       amplitude = a + S16U8MulShift8(b - a, envelope_phi.bytes[0]);
     }
+    if (data_.audio.mode == AUDIO_MODE_SWEEP) {
+      amplitude = 1024;
+    }
     audio_buffer_.Overwrite(2048 + S16U16MulShift16(sample + 32768, amplitude));
   }
   state_.audio_phase = phase;
@@ -495,6 +509,7 @@ const SignalGenerator::AudioRenderFn SignalGenerator::fn_table_[] PROGMEM = {
   &SignalGenerator::RenderAudioBandLimited,
   &SignalGenerator::RenderAudioSine,
   &SignalGenerator::RenderAudioNoise,
+  &SignalGenerator::RenderAudioSine,
 };
 
 }  // namespace module_tester

@@ -144,7 +144,7 @@ static const prog_Parameter parameters[] PROGMEM = {
   
   // 10
   { SG_PRM_AUDIO_MODE,
-    STR_SAW, AUDIO_MODE_SAW, AUDIO_MODE_NOISE,
+    STR_SAW, AUDIO_MODE_SAW, AUDIO_MODE_SWEEP,
     STR_SHAPE },
 
   // 11

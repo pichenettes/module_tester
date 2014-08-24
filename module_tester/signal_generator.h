@@ -99,7 +99,8 @@ enum AudioMode {
   AUDIO_MODE_SQUARE,
   AUDIO_MODE_TRIANGLE,
   AUDIO_MODE_SINE,
-  AUDIO_MODE_NOISE
+  AUDIO_MODE_NOISE,
+  AUDIO_MODE_SWEEP,
 };
 
 enum AudioEnvelopeMode {
@@ -220,6 +221,8 @@ struct SignalGeneratorState {
   uint8_t trigger_count;
   uint8_t gate_state;
   uint8_t last_midi_note;
+  
+  uint8_t sweep_note;
 };
 
 class SignalGenerator {

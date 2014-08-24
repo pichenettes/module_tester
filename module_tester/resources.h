@@ -135,27 +135,28 @@ extern const prog_uint8_t wav_bandlimited_triangle_5[] PROGMEM;
 #define STR__TRIANGLE 56  // triangle
 #define STR__SINE 57  // sine
 #define STR_NOISE 58  // noise
-#define STR_10HZ 59  // 10Hz
-#define STR_20HZ 60  // 20Hz
-#define STR_50HZ 61  // 50Hz
-#define STR_100HZ 62  // 100Hz
-#define STR_200HZ 63  // 200Hz
-#define STR_500HZ 64  // 500Hz
-#define STR_1_0KHZ 65  // 1.0kHz
-#define STR_2_0KHZ 66  // 2.0kHz
-#define STR_5_0KHZ 67  // 5.0kHz
-#define STR_11V 68  // 1V
-#define STR_12V 69  // 2V
-#define STR_15V 70  // 5V
-#define STR_S1V 71  // +1V
-#define STR_S2V 72  // +2V
-#define STR_S5V 73  // +5V
-#define STR____OFF 74  // off
-#define STR___NOTE 75  // note
-#define STR___GATE 76  // gate
-#define STR__ON 77  // on
+#define STR_SWEEP 59  // sweep
+#define STR_10HZ 60  // 10Hz
+#define STR_20HZ 61  // 20Hz
+#define STR_50HZ 62  // 50Hz
+#define STR_100HZ 63  // 100Hz
+#define STR_200HZ 64  // 200Hz
+#define STR_500HZ 65  // 500Hz
+#define STR_1_0KHZ 66  // 1.0kHz
+#define STR_2_0KHZ 67  // 2.0kHz
+#define STR_5_0KHZ 68  // 5.0kHz
+#define STR_11V 69  // 1V
+#define STR_12V 70  // 2V
+#define STR_15V 71  // 5V
+#define STR_S1V 72  // +1V
+#define STR_S2V 73  // +2V
+#define STR_S5V 74  // +5V
+#define STR____OFF 75  // off
+#define STR___NOTE 76  // note
+#define STR___GATE 77  // gate
+#define STR__ON 78  // on
 #define LUT_AUDIO_MIDI_NOTE 0
-#define LUT_AUDIO_MIDI_NOTE_SIZE 106
+#define LUT_AUDIO_MIDI_NOTE_SIZE 137
 #define LUT_ENVELOPE 1
 #define LUT_ENVELOPE_SIZE 257
 #define LUT_PULSE_DURATION 2
@@ -173,7 +174,7 @@ extern const prog_uint8_t wav_bandlimited_triangle_5[] PROGMEM;
 #define LUT_CV_PHASE_INCREMENT 2
 #define LUT_CV_PHASE_INCREMENT_SIZE 11
 #define LUT_AUDIO_PHASE_INCREMENT 3
-#define LUT_AUDIO_PHASE_INCREMENT_SIZE 106
+#define LUT_AUDIO_PHASE_INCREMENT_SIZE 137
 #define CHR_SPECIAL_CHARACTERS 0
 #define CHR_SPECIAL_CHARACTERS_SIZE 56
 #define WAV_SINE 0

@@ -76,6 +76,7 @@ static const prog_char str_ptchbend[] PROGMEM = "ptchbend";
 static const prog_char str_modwheel[] PROGMEM = "modwheel";
 static const prog_char str_saw[] PROGMEM = "saw";
 static const prog_char str_noise[] PROGMEM = "noise";
+static const prog_char str_sweep[] PROGMEM = "sweep";
 static const prog_char str_10hz[] PROGMEM = "10Hz";
 static const prog_char str_20hz[] PROGMEM = "20Hz";
 static const prog_char str_50hz[] PROGMEM = "50Hz";
@@ -153,6 +154,7 @@ PROGMEM const prog_char* const string_table[] = {
   str_triangle,
   str_sine,
   str_noise,
+  str_sweep,
   str_10hz,
   str_20hz,
   str_50hz,
@@ -188,7 +190,11 @@ const prog_uint16_t lut_audio_midi_note[] PROGMEM = {
       83,     84,     85,     86,     87,     88,     89,     90,
       91,     92,     93,     94,     95,     96,     97,     98,
       99,    100,    101,    102,    103,    104,    105,    106,
-     107,    108,
+     107,    108,    109,    110,    111,    112,    113,    114,
+     115,    116,    117,    118,    119,    120,    121,    122,
+     123,    124,    125,    126,    127,    128,    129,    130,
+     131,    132,    133,    134,    135,    136,    137,    138,
+     139,
 };
 const prog_uint16_t lut_envelope[] PROGMEM = {
     4095,   4031,   3968,   3906,   3844,   3784,   3724,   3665,
@@ -330,7 +336,11 @@ const prog_uint32_t lut_audio_phase_increment[] PROGMEM = {
   108181843, 114614671, 121430014, 128650618, 136300582, 144405436, 152992230, 162089622,
   171727972, 181939449, 192758132, 204220127, 216363687, 229229342, 242860028, 257301237,
   272601164, 288810873, 305984461, 324179244, 343455945, 363878899, 385516264, 408440254,
-  432727375, 458458684,
+  432727375, 458458684, 485720056, 514602474, 545202329, 577621747, 611968923, 648358489,
+  686911891, 727757798, 771032528, 816880509, 865454751, 916917369, 971440113, 1029204948,
+  1090404659, 1155243494, 1223937847, 1296716979, 1373823783, 1455515596, 1542065057, 1633761018,
+  1730909503, 1833834738, 1942880226, 2058409897, 2180809319, 2310486989, 2447875695, 2593433958,
+  2747647566,
 };
 
 
