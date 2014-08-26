@@ -87,7 +87,6 @@ square
 triangle
 sine
 noise
-sweep
 
 10Hz
 20Hz

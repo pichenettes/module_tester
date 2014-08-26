@@ -76,7 +76,6 @@ static const prog_char str_ptchbend[] PROGMEM = "ptchbend";
 static const prog_char str_modwheel[] PROGMEM = "modwheel";
 static const prog_char str_saw[] PROGMEM = "saw";
 static const prog_char str_noise[] PROGMEM = "noise";
-static const prog_char str_sweep[] PROGMEM = "sweep";
 static const prog_char str_10hz[] PROGMEM = "10Hz";
 static const prog_char str_20hz[] PROGMEM = "20Hz";
 static const prog_char str_50hz[] PROGMEM = "50Hz";
@@ -154,7 +153,6 @@ PROGMEM const prog_char* const string_table[] = {
   str_triangle,
   str_sine,
   str_noise,
-  str_sweep,
   str_10hz,
   str_20hz,
   str_50hz,
